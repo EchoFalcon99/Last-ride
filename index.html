@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Romantic Template for Bisma</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap');
+  body {
+    margin: 0; padding: 0;
+    background: #111;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  .container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ff69b4;
+    position: relative;
+    min-height: 600px;
+  }
+  h1, h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .yellow-box {
+    background: yellow;
+    color: black;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 10px 0 30px 0;
+    font-weight: 600;
+    text-align: center;
+  }
+  input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  button {
+    background: #ff69b4;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:hover {
+    background: #ff4caa;
+  }
+  .hidden {
+    display: none;
+  }
+  .text-animation {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    text-align: center;
+    margin: 30px 0;
+    min-height: 70px;
+  }
+  .choices {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+  }
+  .choice-btn {
+    background: #ff69b4;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+  }
+  .choice-btn:hover {
+    background: #ff4caa;
+  }
+  /* Broken screen animation */
+  .broken-screen {
+    animation: brokenAnim 1s forwards;
+  }
+  @keyframes brokenAnim {
+    0% { filter: none; }
+    100% { filter: url('#broken-glass'); }
+  }
+  /* Flower + heart animation */
+  .flower-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    animation: floatUp 3s ease forwards;
+    opacity: 0;
+  }
+  .flower-heart.show {
+    opacity: 1;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100px) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-50px) scale(1); opacity: 0; }
+  }
+  /* WhatsApp Chat style */
+  .chat-container {
+    background: #25d366;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .chat-header {
+    background: #128c7e;
+    color: white;
+    padding: 10px;
+    border-radius: 12px 12px 0 0;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+  }
+  .chat-messages {
+    padding: 10px;
+    background: #ece5dd;
+    height: 240px;
+    overflow-y: auto;
+    border-radius: 0 0 12px 12px;
+  }
+  .message {
+    max-width: 80%;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+  .msg-from-bisma {
+    background: white;
+    color: black;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+  }
+  .msg-from-saif {
+    background: #dcf8c6;
+    color: black;
+    margin-right: auto;
+    border-bottom-left-radius: 0;
+  }
+  .chat-close-btn {
+    background: #ff4757;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .chat-close-btn:hover {
+    background: #e84118;
+  }
+  /* Birthday cake style */
+  .birthday-section {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .birthday-section h2 {
+    font-size: 30px;
+    color: #ff69b4;
+  }
+  .cake {
+    width: 100px;
+    margin: 15px auto;
+    position: relative;
+  }
+  .cake-base {
+    width: 100px;
+    height: 70px;
+    background: #ffb6c1;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+  }
+  .cake-candle {
+    width: 8px;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    top: -40px;
+    left: 46px;
+    border-radius: 3px;
+    box-shadow: 0 0 6px 2px yellow;
+  }
+  .candle-flame {
+    width: 12px;
+    height: 20px;
+    background: radial-gradient(circle, #ffea00 0%, #ff8000 100%);
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 1s infinite alternate;
+  }
+  @keyframes flicker {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.1); }
+  }
+  /* Goodbye text style */
+  .goodbye {
+    font-size: 28px;
+    color: #ff69b4;
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Great Vibes', cursive;
+  }
+</style>
+</head>
+<body>
+<div class="container" id="container">
+
+  <h1 id="title">Enter Your Name</h1>
+
+  <!-- Step 1: Name input -->
+  <div id="step1">
+    <div class="yellow-box">Please enter your name</div>
+    <input type="text" id="nameInput" placeholder="Enter your name here" autocomplete="off" />
+    <button id="submitName">Submit</button>
+  </div>
+
+  <!-- Step 2: Birth Date -->
+  <div id="step2" class="hidden">
+    <h2>Enter Your Birth Date</h2>
+    <input type="date" id="birthDateInput" />
+    <button id="submitBirthDate">Submit</button>
+  </div>
+
+  <!-- Step 3: Animated Text -->
+  <div id="step3" class="hidden">
+    <div class="text-animation" id="animatedText"></div>
+    <div class="choices" id="colorChoices">
+      <div class="choice-btn" data-color="black" style="background:black;">Black</div>
+      <div class="choice-btn" data-color="white" style="background:white; color:black;">White</div>
+    </div>
+  </div>
+
+  <!-- Step 4: Do you know Saifu? -->
+  <div id="step4" class="hidden">
+    <h2>Saifu ko janti ho?</h2>
+    <div class="choices">
+      <div class="choice-btn" data-answer="yes">Yes</div>
+      <div class="choice-btn" data-answer="no">No</div>
+    </div>
+  </div>
+
+  <!-- Step 5: Are you ready? -->
+  <div id="step5" class="hidden">
+    <h2>Are you ready?</h2>
+    <div style="text-align:center; margin-bottom:20px;">
+      <button id="yesReadyBtn">Yes Juhi Hi</button>
+    </div>
+  </div>
+
+  <!-- Flower + Heart Animation -->
+  <div class="flower-heart" id="flowerHeart" style="display:none;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#ff69b4" width="80" height="80">
+      <!-- Simple flower with heart -->
+      <circle cx="32" cy="32" r="10" fill="#ff69b4" />
+      <path d="M32 10 L28 24 L36 24 Z" fill="#fff" />
+      <path d="M24 28 L28 32 L24 36 Z" fill="#fff" />
+      <path d="M40 28 L36 32 L40 36 Z" fill="#fff" />
+      <path d="M32 44 L28 40 L36 40 Z" fill="#fff" />
+      <path d="M30 32 Q32 34 34 32 Q32 30 30 32 Z" fill="red" />
+    </svg>
+  </div>
+
+  <!-- Step 6: WhatsApp Chat -->
+  <div id="step6" class="hidden">
+    <div class="chat-container">
+      <div class="chat-header" id="chatHeader">Saif</div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message msg-from-saif">Assalamualaikum</div>
+        <div class="message msg-from-bisma">Ap mujh se naraz ho?</div>
+        <div class="message msg-from-saif">Nahi, phir?</div>
+        <div class="message msg-from-bisma">Ap ne mujh se itna rude trika se kyun baat ki class mein?</div>
+        <div class="message msg-from-saif">Meri tabiyat kharab thi is liye.</div>
+      </div>
+      <button class="chat-close-btn" id="closeChatBtn">Close Chat</button>
+    </div>
+  </div>
+
+  <!-- Step 7: Birthday Question -->
+  <div id="step7" class="hidden">
+    <h2>Ap janna chahti ho aj kisi ki birthday hai?</h2>
+    <div class="choices">
+      <div class="choice-btn" data-bday="yes">Yes</div>
+      <div class="choice-btn" data-bday="no">No</div>
+    </div>
+  </div>
+
+  <!-- Step 8: Birthday Wishes -->
+  <div id="step8" class="hidden birthday-section">
+    <h2>Happy Birthday Bisma</h2>
+    <div class="cake">
+      <div class="cake-base"></div>
+      <div class="cake-candle"></div>
+      <div class="candle-flame"></div>
+    </div>
+    <p style="
